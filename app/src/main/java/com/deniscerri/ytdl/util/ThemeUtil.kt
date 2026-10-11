@@ -158,7 +158,7 @@ object ThemeUtil {
      * Get the styled app name
      */
     fun getStyledAppName(context: Context): Spanned {
-        val colorPrimary = getThemeColor(context, androidx.appcompat.R.attr.colorPrimaryDark)
+        val colorPrimary = getThemeColor(context, androidx.appcompat.R.attr.colorPrimary)
         val hexColor = "#%06X".format(0xFFFFFF and colorPrimary)
         return "<b>YTDLnis</b> <span style='color:$hexColor;'>Solid</span>"
             .parseAsHtml(HtmlCompat.FROM_HTML_MODE_COMPACT)

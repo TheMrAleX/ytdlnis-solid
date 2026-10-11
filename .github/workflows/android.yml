@@ -188,4 +188,4 @@ jobs:
             echo "Release already exists; preserving published assets."
             exit 0
           fi
-          gh release create "$tag" *.apk SHA256SUMS.txt --target "$COMMIT_SHA" --title "YTDLnis Solid · build ${SOLID_BUILD_NUMBER}.${SOLID_BUILD_ATTEMPT}" --notes-file notes.txt "${options[@]}"
+          gh release create "$tag" *.apk SHA256SUMS.txt --target "$COMMIT_SHA" --title "YTDLnis Solid 2.0 · build ${SOLID_BUILD_NUMBER}.${SOLID_BUILD_ATTEMPT}" --notes-file notes.txt "${options[@]}"
