@@ -1,6 +1,7 @@
 package com.deniscerri.ytdl
 
 import android.graphics.Bitmap
+import android.content.pm.ActivityInfo
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -82,6 +83,9 @@ class SolidUiSmokeTest {
             scenario.recreate()
             onView(withId(R.id.solid_add_link)).check(matches(isDisplayed()))
             screenshot("07-home-dark")
+            scenario.onActivity { it.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE }
+            onView(withId(R.id.solid_add_link)).check(matches(isDisplayed()))
+            screenshot("08-home-landscape")
         }
     }
 }
