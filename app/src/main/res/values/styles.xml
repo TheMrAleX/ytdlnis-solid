@@ -51,6 +51,7 @@
     </style>
     <style name="Preference.SwitchPreferenceCompat.Material3" parent="@style/Preference.SwitchPreferenceCompat.Material">
         <item name="widgetLayout">@layout/preferece_material_switch</item>
+        <item name="android:layout">@layout/solid_preference</item>
     </style>
     <style name="snackBarStyle" parent="@style/Widget.Material3.Snackbar">
         <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>

@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.preference.PreferenceManager
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -49,6 +50,10 @@ class SolidUiSmokeTest {
             scenario.onActivity { it.findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.moreFragment }
             onView(withId(R.id.app_icon)).check(matches(isDisplayed()))
             screenshot("04-tools")
+            scenario.onActivity { it.findViewById<View>(R.id.settings).performClick() }
+            onView(withId(R.id.settings_toolbar)).check(matches(isDisplayed()))
+            screenshot("05-settings")
+            pressBack()
 
             // Fixture text is confined to tests. These are the actual production XML components.
             scenario.onActivity { activity ->
@@ -71,7 +76,12 @@ class SolidUiSmokeTest {
                 gallery.addView(activity.layoutInflater.inflate(R.layout.solid_widget, gallery, false))
                 activity.setContentView(gallery)
             }
-            screenshot("05-native-components")
+            screenshot("06-native-components")
+            PreferenceManager.getDefaultSharedPreferences(instrumentation.targetContext).edit()
+                .putString("ytdlnis_theme", "Dark").commit()
+            scenario.recreate()
+            onView(withId(R.id.solid_add_link)).check(matches(isDisplayed()))
+            screenshot("07-home-dark")
         }
     }
 }

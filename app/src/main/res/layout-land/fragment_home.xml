@@ -25,7 +25,7 @@
             </LinearLayout>
         </com.facebook.shimmer.ShimmerFrameLayout>
     </RelativeLayout>
-    <com.google.android.material.appbar.AppBarLayout android:id="@+id/home_appbarlayout" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <com.google.android.material.appbar.AppBarLayout android:id="@+id/home_appbarlayout" android:background="@color/solid_canvas" android:layout_width="match_parent" android:layout_height="wrap_content" app:elevation="0dp">
         <com.google.android.material.appbar.MaterialToolbar android:id="@+id/home_toolbar" android:layout_width="match_parent" app:title="@string/app_name" app:layout_scrollFlags="scroll|enterAlways" android:layout_height="wrap_content" />
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginHorizontal="20dp" android:layout_marginTop="8dp" android:layout_marginBottom="12dp" android:padding="24dp" android:background="@drawable/solid_hero" app:layout_scrollFlags="scroll|enterAlways">
             <TextView style="@style/Solid.Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/white" android:text="@string/solid_headline" />

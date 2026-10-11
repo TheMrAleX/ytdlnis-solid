@@ -34,7 +34,9 @@ Keep a private backup. Never commit the key or passwords. Missing secrets fail C
 
 ## Visual direction
 
-Inspired by classic SnapTube download selectors: warm yellow accents, neutral light surfaces and slate dark surfaces, compact 12dp cards, outlined input controls, and a full-width download action below the media title. Audio/video/command tabs remain accessible. Format rows emphasize quality and file size, with checked backgrounds and borders. History, queue, search, settings, and alternate landscape layouts use the same component language. Theme choices, accessibility, and download features remain available.
+Solid 2.0 replaces the old screen composition: a branded home dashboard with working search/library/queue shortcuts, floating navigation dock, media results with separate thumbnail, title and action areas, readable library rows, transfer cards with a dedicated progress track, grouped tools, neutral metadata tiles and a download action after quality selection. Inputs, tabs, preferences, empty states, onboarding and alternate layouts share new typography, spacing and surfaces. Teal and charcoal are the default; amber is limited to the main home action and the new launcher mark. The new home-screen widget opens the app, library or queue without background polling.
+
+Existing installations switch once to the Solid identity, then respect later accent choices. The application ID, signing key and monotonic version numbering are unchanged. The emulator UI check navigates real screens and captures light/dark previews; the native component gallery uses fixture text only in instrumentation tests. Releases require this check, lint, unit tests and all signed builds to pass.
 
 Reference: https://www.snaptube.com/ and historical download selector screenshots from https://www.techtudo.com.br/dicas-e-tutoriais/2022/02/como-baixar-video-do-youtube-com-o-snaptube.ghtml
 
