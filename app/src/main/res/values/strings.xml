@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">YTDLnis Solid</string>
+    <string name="solid_download_hint">Choose audio or video, then select your quality.</string>
     <string name="worst_quality">Worst quality</string>
     <string name="best_quality">Best quality</string>
     <string name="search">Search</string>

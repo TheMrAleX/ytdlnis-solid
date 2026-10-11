@@ -81,4 +81,30 @@
         <item name="android:textSize">0sp</item>
     </style>
 
+    <style name="Solid.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">1dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+    </style>
+    <style name="Solid.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">12dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Solid.BottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">@style/Solid.SheetShape</item>
+        <item name="backgroundTint">?attr/colorSurface</item>
+    </style>
+    <style name="Solid.SheetShape" parent="">
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+    <style name="Solid.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/Solid.Title</item>
+    </style>
+    <style name="Solid.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

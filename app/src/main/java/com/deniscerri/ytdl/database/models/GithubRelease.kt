@@ -14,7 +14,9 @@ data class GithubRelease(
     @SerializedName(value = "published_at")
     var published_at: Date,
     @SerializedName(value = "assets")
-    var assets: List<GithubReleaseAsset>
+    var assets: List<GithubReleaseAsset>,
+    val draft: Boolean = false,
+    val prerelease: Boolean = false
 )
 
 

@@ -122,12 +122,12 @@
         <Preference
             app:icon="@drawable/ic_code"
             app:key="rreth"
-            app:summary="https://github.com/deniscerri/ytdlnis"
+            app:summary="https://github.com/TheMrAleX/ytdlnis-solid"
             app:allowDividerBelow="true"
             app:title="@string/source_code">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/deniscerri/ytdlnis" />
+                android:data="https://github.com/TheMrAleX/ytdlnis-solid" />
         </Preference>
 
 

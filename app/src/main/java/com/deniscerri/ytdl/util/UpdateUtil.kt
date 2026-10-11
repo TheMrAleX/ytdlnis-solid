@@ -34,64 +34,29 @@ class UpdateUtil(var context: Context) {
         Pair<String, RuntimeManager.UpdateChannel>("master", RuntimeManager.UpdateChannel.MASTER)
     )
 
-    private fun String.tagNameToVersionNumber() : Int {
-        return this.replace("-beta", "").replace(".", "").padEnd(10,'0').toInt()
-    }
-
     @SuppressLint("UnspecifiedRegisterReceiverFlag")
     fun tryGetNewVersion() : Result<GithubRelease> {
-        try {
-            val skippedVersions = sharedPreferences.getString("skip_updates", "")?.split(",")?.distinct()?.toMutableList() ?: mutableListOf()
-            val res = getGithubReleases()
-
-            if (res.isEmpty()){
-                return Result.failure(Error(context.getString(R.string.network_error)))
-            }
-
-            val currentVersion = BuildConfig.VERSION_NAME
-            val currentVerNumber = currentVersion.tagNameToVersionNumber()
-
-            val useBeta = sharedPreferences.getBoolean("update_beta", false)
-            var isInLatest = true
-
-            var v: GithubRelease
-            if (useBeta) {
-                v = res.firstOrNull { it.tag_name.contains("beta", true) } ?: res.first()
-                val stableV = res.first { !it.tag_name.contains("beta", true) }
-
-                val incomingVerNumber = v.tag_name.removePrefix("v").tagNameToVersionNumber()
-                val incomingStableVerNumber = stableV.tag_name.removePrefix("v").tagNameToVersionNumber()
-
-                //if in beta but latest stable higher
-                if (currentVerNumber < incomingStableVerNumber) {
-                    isInLatest = false
-                    v = stableV
-                }else{
-                    isInLatest = currentVerNumber >= incomingVerNumber
+        return runCatching {
+            val skipped = sharedPreferences.getString("skip_updates", "")?.split(",").orEmpty()
+            val releases = getGithubReleases()
+            if (releases.isEmpty()) error(context.getString(R.string.network_error))
+            val release = releases
+                .filter { !it.draft && !it.prerelease }
+                .mapNotNull { release ->
+                    val code = SolidReleaseVersion.apkVersionCode(release.tag_name)
+                        ?: return@mapNotNull null
+                    release to code
                 }
-            }else {
-                v = res.first { !it.tag_name.contains("beta", true) }
-                val incomingVerNumber = v.tag_name.removePrefix("v").tagNameToVersionNumber()
-
-                //if current version is beta but wants to downgrade to stable, allow it
-                isInLatest = if (currentVersion.contains("beta", true)) {
-                    false
-                }else {
-                    currentVerNumber >= incomingVerNumber
-                }
-            }
-
-            if (skippedVersions.contains(v.tag_name)) isInLatest = true
-            if (isInLatest) return Result.failure(Error(context.getString(R.string.you_are_in_latest_version)))
-            return Result.success(v)
-        }catch (e: Exception){
-            e.printStackTrace()
-            return Result.failure(e)
+                .filter { (_, code) -> code > BuildConfig.VERSION_CODE.toLong() / 100 * 100 }
+                .maxByOrNull { it.second }?.first
+                ?: error(context.getString(R.string.you_are_in_latest_version))
+            if (release.tag_name in skipped) error(context.getString(R.string.you_are_in_latest_version))
+            release
         }
     }
 
     fun getGithubReleases(): List<GithubRelease> {
-        val url = "https://api.github.com/repos/deniscerri/ytdlnis/releases"
+        val url = "https://api.github.com/repos/TheMrAleX/ytdlnis-solid/releases?per_page=100"
         val conn: HttpURLConnection
         var json = listOf<GithubRelease>()
         try {
@@ -169,7 +134,10 @@ class UpdateUtil(var context: Context) {
                     it.name.contains(Build.SUPPORTED_ABIS[0])
                     && !it.name.contains("foss")
                     && !it.name.contains("izzy")
-                }!!
+                    && it.name.endsWith(".apk")
+                } ?: release.assets.firstOrNull {
+                    it.name.contains("universal") && it.name.endsWith("-github.apk")
+                } ?: error("No compatible APK found in this Solid release")
                 File(FileUtil.getDefaultApksPath()).mkdirs()
                 val tempApk = File(FileUtil.getDefaultApksPath(), "${releaseVersion.browser_download_url.split("/").last()}")
 

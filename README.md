@@ -1,3 +1,9 @@
+# YTDLnis Solid
+
+Independent fork by TheMrAleX with a classic downloader-inspired interface and automatic APK release history. [Download releases](https://github.com/TheMrAleX/ytdlnis-solid/releases) · [Build and signing instructions](SOLID.md)
+
+---
+
 <h1 align="center">
 	<img src="fastlane/metadata/android/en-US/images/icon.png" width="25%" /> <br>
 	YTDLnis

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="solid_download_hint">Elige audio o vídeo y selecciona la calidad.</string>
     <string name="remove_all">Limpiar Todo</string>
     <string name="settings">Ajustes</string>
     <string name="home">Inicio</string>

@@ -19,7 +19,7 @@
             android:id="@+id/observe_sources_card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardCornerRadius="20dp"
+            app:cardCornerRadius="12dp"
             app:cardElevation="0dp"
             app:strokeColor="?attr/colorPrimary"
             app:cardBackgroundColor="?attr/colorSurfaceContainer"

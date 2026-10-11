@@ -5,7 +5,11 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:color">@android:color/transparent</item>
         <item name="alertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>
-        <item name="dialogCornerRadius">28dp</item>
+        <item name="dialogCornerRadius">16dp</item>
+        <item name="materialCardViewStyle">@style/Solid.Card</item>
+        <item name="materialButtonStyle">@style/Solid.Button</item>
+        <item name="bottomSheetStyle">@style/Solid.BottomSheet</item>
+        <item name="toolbarStyle">@style/Solid.Toolbar</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="actionBarTheme">@style/ThemeOverlay.Material3.Dark.ActionBar</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
@@ -78,6 +82,8 @@
     </style>
 
     <style name="Theme.Yellow" parent="BaseTheme">
+        <item name="colorSurfaceContainer">@color/yellow_md_theme_dark_surface</item>
+        <item name="colorSurfaceContainerHigh">@color/yellow_md_theme_dark_surfaceVariant</item>
         <item name="colorPrimary">@color/yellow_md_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/yellow_md_theme_dark_onPrimary</item>
         <item name="colorPrimaryContainer">@color/yellow_md_theme_dark_primaryContainer</item>

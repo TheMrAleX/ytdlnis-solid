@@ -97,7 +97,7 @@ object ThemeUtil {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
 
         //update accent
-        when (sharedPreferences.getString("theme_accent","blue")) {
+        when (sharedPreferences.getString("theme_accent","yellow")) {
             "Default" -> {
                 DynamicColors.applyToActivityIfAvailable(activity)
                 activity.setTheme(R.style.BaseTheme)
@@ -137,7 +137,7 @@ object ThemeUtil {
 
     fun getThemeColor(context: Context, colorCode: Int): Int {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val accent = sharedPreferences.getString("theme_accent", "blue")
+        val accent = sharedPreferences.getString("theme_accent", "yellow")
         return if (accent == "blue"){
             "d43c3b".toInt(16)
         }else{
@@ -154,7 +154,7 @@ object ThemeUtil {
     fun getStyledAppName(context: Context): Spanned {
         val colorPrimary = getThemeColor(context, androidx.appcompat.R.attr.colorPrimaryDark)
         val hexColor = "#%06X".format(0xFFFFFF and colorPrimary)
-        return "<span  style='color:$hexColor';>YTDL</span>nis"
+        return "<b>YTDLnis</b> <span style='color:$hexColor;'>Solid</span>"
             .parseAsHtml(HtmlCompat.FROM_HTML_MODE_COMPACT)
     }
 

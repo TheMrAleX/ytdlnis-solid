@@ -16,7 +16,14 @@ def versionBuild = 0 // bump for dogfood builds, public betas, etc.
 //WHEN RELEASING BETA KEEP THE SAME VERSION AS LATEST STABLE, SO USERS CAN DOWNGRADE
 def isBeta = false
 
-def versionExt = ""
+// CI supplies a monotonically increasing code; never change the application ID or key.
+def solidBuild = System.getenv("SOLID_BUILD_NUMBER") ?: "0"
+def solidAttempt = System.getenv("SOLID_BUILD_ATTEMPT") ?: "0"
+def solidVersionCode = 2000000 + solidBuild.toInteger() * 100 + solidAttempt.toInteger()
+if (solidAttempt.toInteger() >= 100 || solidVersionCode > 20999999) {
+    throw new GradleException("Solid build numbering exceeds the supported APK version range")
+}
+def versionExt = "-solid.${solidBuild}.${solidAttempt}"
 if (versionBuild > 0) {
     versionExt += ".${versionBuild}"
 }
@@ -32,8 +39,6 @@ android {
         def propertiesFile = rootProject.file("keystore.properties")
         if(propertiesFile.text != ""){
             properties.load(new FileInputStream(propertiesFile))
-
-            properties.load(new FileInputStream(propertiesFile))
             signingConfigs {
                 debug {
                     storeFile file(properties["signingConfig.storeFile"])
@@ -44,14 +49,17 @@ android {
             }
         }
     }catch(IOException ignored){}
+    if (System.getenv("CI") == "true" && !properties["signingConfig.storeFile"]) {
+        throw new GradleException("Release signing is required in CI; configure BASE_64_SIGNING_KEY and LOCAL_PROPERTIES")
+    }
     defaultConfig {
-        applicationId "com.deniscerri.ytdl"
+        applicationId "com.themralex.ytdlnis.solid"
         minSdk 24
         targetSdk 36
-        versionCode versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
+        versionCode solidVersionCode
         versionName "${versionMajor}.${versionMinor}.${versionPatch}${versionExt}"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        archivesBaseName = "YTDLnis-$versionName"
+        archivesBaseName = "YTDLnis-Solid-$versionName"
         vectorDrawables {
             useSupportLibrary true
         }
@@ -111,9 +119,9 @@ android {
 
             def abi = output.getFilter(com.android.build.OutputFile.ABI) ?: "universal"
             if (variant.flavorName == "github") {
-                output.outputFileName = "YTDLnis-${versionName}-${abi}-${variant.buildType.name}-github.apk"
+                output.outputFileName = "YTDLnis-Solid-${versionName}-${abi}-${variant.buildType.name}-github.apk"
             } else {
-                output.outputFileName = "YTDLnis-${variant.flavorName}-${versionName}-${abi}-${variant.buildType.name}.apk"
+                output.outputFileName = "YTDLnis-Solid-${variant.flavorName}-${versionName}-${abi}-${variant.buildType.name}.apk"
             }
         }
     }

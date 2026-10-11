@@ -14,7 +14,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/title_textinput"
-            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -40,7 +40,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/author_textinput"
-                style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="45"
@@ -56,7 +56,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/downloadContainer"
-                style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="45"
@@ -88,7 +88,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/outputPath"
-            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/save_dir"
