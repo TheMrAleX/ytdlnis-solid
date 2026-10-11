@@ -28,11 +28,10 @@ keytool -genkeypair -keystore "$backup_dir/release_keystore.jks" -storetype JKS 
   -storepass:env SOLID_STORE_PASSWORD -keypass:env SOLID_STORE_PASSWORD \
   -dname "CN=YTDLnis Solid, OU=Android, O=TheMrAleX"
 python3 - "$backup_dir/keystore.properties" <<'PYPROPS'
-import os, sys
+import json, os, sys
 from pathlib import Path
 password = os.environ['SOLID_STORE_PASSWORD']
-password = password.replace(chr(92), chr(92)*2).replace(' ', chr(92)+' ')
-password = password.replace(chr(9), chr(92)+'t').replace(chr(13), chr(92)+'r')
+password = json.dumps(password, ensure_ascii=True)[1:-1].replace(' ', chr(92)+' ')
 Path(sys.argv[1]).write_text('signingConfig.storeFile=release_keystore.jks'+chr(10)+
     'signingConfig.storePassword='+password+chr(10)+
     'signingConfig.keyAlias=solid'+chr(10)+

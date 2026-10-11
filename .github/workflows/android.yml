@@ -36,7 +36,9 @@ jobs:
       - name: Compile and check the app without producing an installable APK
         env:
           SOLID_VALIDATE_ONLY: 'true'
-        run: bash gradlew testGithubDebugUnitTest lintGithubDebug --stacktrace
+        run: |
+          touch local.properties
+          bash gradlew testGithubDebugUnitTest lintGithubDebug --stacktrace
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -78,6 +80,7 @@ jobs:
           umask 077
           printf '%s' "$SIGNING_KEY" | base64 --decode > app/release_keystore.jks
           printf '%s\n' "$SIGNING_PROPERTIES" > keystore.properties
+          touch local.properties
           chmod +x gradlew
       - name: Translator credits
         continue-on-error: true
