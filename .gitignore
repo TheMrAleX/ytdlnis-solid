@@ -13,3 +13,8 @@ app/src/main/jniLibs
 .kotlin
 # generated in CI by scripts/fetch_translators.py
 app/src/main/assets/translators.json
+
+# Never commit local signing backups
+solid-signing-private/
+*.jks
+*.keystore

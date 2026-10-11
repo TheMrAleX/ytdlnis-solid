@@ -49,7 +49,7 @@ android {
             }
         }
     }catch(IOException ignored){}
-    if (System.getenv("CI") == "true" && !properties["signingConfig.storeFile"]) {
+    if (System.getenv("CI") == "true" && System.getenv("SOLID_VALIDATE_ONLY") != "true" && !properties["signingConfig.storeFile"]) {
         throw new GradleException("Release signing is required in CI; configure BASE_64_SIGNING_KEY and LOCAL_PROPERTIES")
     }
     defaultConfig {

@@ -18,6 +18,34 @@ env:
   SOLID_BUILD_ATTEMPT: ${{ github.run_attempt }}
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: temurin
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
+          log-accepted-android-sdk-licenses: false
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile and check the app without producing an installable APK
+        env:
+          SOLID_VALIDATE_ONLY: 'true'
+        run: bash gradlew testGithubDebugUnitTest lintGithubDebug --stacktrace
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: solid-validation-${{ github.run_number }}-${{ github.run_attempt }}
+          path: |
+            app/build/reports/tests/
+            app/build/reports/lint-results-*.html
+          if-no-files-found: ignore
+
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -33,6 +61,9 @@ jobs:
           java-version: '17'
           distribution: temurin
       - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
+          log-accepted-android-sdk-licenses: false
       - uses: gradle/actions/setup-gradle@v4
       - name: Prepare permanent signing key
         env:
@@ -76,7 +107,7 @@ jobs:
         run: rm -f app/release_keystore.jks keystore.properties
 
   release:
-    needs: build
+    needs: [validate, build]
     runs-on: ubuntu-latest
     permissions:
       contents: write

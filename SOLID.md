@@ -20,6 +20,16 @@ signingConfig.keyAlias=YOUR_KEY_ALIAS
 signingConfig.keyPassword=YOUR_KEY_PASSWORD
 ```
 
+The validation job compiles resources and Kotlin and runs unit tests/lint without creating an installable APK, even before signing is configured. Publication requires all validation and signed build jobs to pass.
+
+If this is your first Solid key, create it on your own computer with JDK 17 and GitHub CLI installed:
+
+```bash
+bash scripts/setup_solid_signing.sh
+```
+
+The script asks for a password locally, saves a private backup outside the repository, and uploads the two encrypted secrets to this fork. It refuses to overwrite an existing signing configuration. Do not send the password or key in chat.
+
 Keep a private backup. Never commit the key or passwords. Missing secrets fail CI rather than creating a temporary key. Keep using the same key and workflow file: changing the package/key or resetting the run counter can break upgrades. ABI codes are retained; changing CPU APK within the same build may not be an upgrade. Each new run increments the base version, including rerun attempts (maximum 99 attempts per run). Rerunning an older build produces an older version and does not replace Latest.
 
 ## Visual direction
