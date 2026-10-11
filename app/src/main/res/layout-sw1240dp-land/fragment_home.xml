@@ -38,7 +38,7 @@
 
                 </com.google.android.material.card.MaterialCardView>
             </com.facebook.shimmer.ShimmerFrameLayout>
-            <com.google.android.material.search.SearchBar android:id="@+id/search_bar" android:layout_width="match_parent" android:layout_height="56dp" android:hint="@string/search_hint" app:menu="@menu/main_menu" android:layout_marginHorizontal="20dp" android:backgroundTint="@color/solid_surface">
+            <com.google.android.material.search.SearchBar android:id="@+id/search_bar" android:layout_width="0dp" android:layout_height="56dp" android:hint="@string/search_hint" app:menu="@menu/main_menu" android:layout_marginHorizontal="20dp" android:backgroundTint="@color/solid_surface" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
 
             </com.google.android.material.search.SearchBar>
         </androidx.constraintlayout.widget.ConstraintLayout>
