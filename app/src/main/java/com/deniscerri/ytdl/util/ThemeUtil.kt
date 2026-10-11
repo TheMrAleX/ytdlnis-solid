@@ -101,6 +101,10 @@ object ThemeUtil {
             sharedPreferences.edit().putString("theme_accent", "solid")
                 .putInt("solid_design_revision", 2).apply()
         }
+        // Preserve custom navigation; upgrade the old default to expose all four destinations.
+        if (sharedPreferences.getString("navigation_bar", null) == "0,1,2,-3,-4") {
+            sharedPreferences.edit().putString("navigation_bar", "0,2,1,4,-3").apply()
+        }
         //update accent
         when (sharedPreferences.getString("theme_accent","solid")) {
             "solid" -> activity.setTheme(R.style.Theme_Solid)
