@@ -96,8 +96,14 @@ object ThemeUtil {
     fun updateTheme(activity: Activity) {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
 
+        // Apply the new visual identity once; later user theme choices are respected.
+        if (sharedPreferences.getInt("solid_design_revision", 0) < 2) {
+            sharedPreferences.edit().putString("theme_accent", "solid")
+                .putInt("solid_design_revision", 2).apply()
+        }
         //update accent
-        when (sharedPreferences.getString("theme_accent","yellow")) {
+        when (sharedPreferences.getString("theme_accent","solid")) {
+            "solid" -> activity.setTheme(R.style.Theme_Solid)
             "Default" -> {
                 DynamicColors.applyToActivityIfAvailable(activity)
                 activity.setTheme(R.style.BaseTheme)
@@ -137,7 +143,7 @@ object ThemeUtil {
 
     fun getThemeColor(context: Context, colorCode: Int): Int {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val accent = sharedPreferences.getString("theme_accent", "yellow")
+        val accent = sharedPreferences.getString("theme_accent", "solid")
         return if (accent == "blue"){
             "d43c3b".toInt(16)
         }else{

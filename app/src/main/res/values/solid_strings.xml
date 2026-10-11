@@ -1,0 +1,4 @@
+<resources>
+<string name="solid_theme">Solid</string><string name="solid_headline">Your media.
+Your way.</string><string name="solid_intro">Save a video, keep the audio, make it yours.</string><string name="solid_start">Add a link</string><string name="solid_library">Library</string><string name="solid_tools">Your workspace</string><string name="solid_tools_hint">Downloads, automation and preferences in one place.</string><string name="solid_quick">Quick access</string><string name="solid_manage">Manage your media</string><string name="solid_advanced">Power tools</string><string name="solid_quality">Choose your quality</string><string name="solid_empty_hint">Your saved media will appear here.</string><string name="solid_widget">Solid · quick access</string><string name="solid_widget_description">Open Solid, your library or the download queue.</string>
+</resources>

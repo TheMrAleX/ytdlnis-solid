@@ -171,6 +171,15 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener, SearchSuggesti
         //initViews
         searchBar = view.findViewById(R.id.search_bar)
         searchView = view.findViewById(R.id.search_view)
+        view.findViewById<View>(R.id.solid_add_link).setOnClickListener {
+            searchBar?.performClick()
+        }
+        view.findViewById<View>(R.id.solid_library_shortcut).setOnClickListener {
+            findNavController().navigate(R.id.historyFragment)
+        }
+        view.findViewById<View>(R.id.solid_queue_shortcut).setOnClickListener {
+            findNavController().navigate(R.id.downloadQueueMainFragment)
+        }
         appBarLayout = view.findViewById(R.id.home_appbarlayout)
         materialToolbar = view.findViewById(R.id.home_toolbar)
         queriesChipGroup = view.findViewById(R.id.queries)

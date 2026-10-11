@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <style name="Theme.BottomSheet" parent="BaseTheme">
         <item name="windowNoTitle">true</item>
@@ -8,17 +9,14 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="preferenceTheme">@style/PreferenceTheme</item>
     </style>
-
     <style name="Divider">
         <item name="android:background">@color/light_grey</item>
     </style>
-
     <style name="Divider.Horizontal" parent="Divider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item> // You can change thickness here.
         <item name="android:layout_marginBottom">10dp</item>
     </style>
-
     <style name="Divider.Vertical" parent="Divider">
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -27,28 +25,23 @@
         <item name="android:layout_marginEnd">5dp</item>
         <item name="android:layout_marginStart">5dp</item>
     </style>
-
     <style name="ShapeAppearanceOverlay.Avatar" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">5dp</item>
     </style>
-
     <style name="CircleImageView">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
-
     <style name="ShapeAppearanceOverlay.Avatar2" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">7dp</item>
     </style>
-
     <style name="ShapeAppearanceOverlay.RightCorner" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeBottomRight">10dp</item>
         <item name="backgroundTint">#80000000</item>
     </style>
-
     <style name="ShapeAppearanceOverlay.Chip.Rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">12dp</item>
@@ -56,11 +49,9 @@
         <item name="cornerSizeBottomLeft">12dp</item>
         <item name="cornerSizeBottomRight">12dp</item>
     </style>
-
     <style name="Preference.SwitchPreferenceCompat.Material3" parent="@style/Preference.SwitchPreferenceCompat.Material">
         <item name="widgetLayout">@layout/preferece_material_switch</item>
     </style>
-
     <style name="snackBarStyle" parent="@style/Widget.Material3.Snackbar">
         <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
         <item name="android:paddingStart">20dp</item>
@@ -68,43 +59,110 @@
         <item name="maxLines">2</item>
         <item name="animationMode">slide</item>
     </style>
-
     <style name="FullScreenDialogTheme" parent="MaterialAlertDialog.Material3">
         <item name="android:windowIsFloating">false</item>
     </style>
-
     <style name="PreferenceTheme" parent="PreferenceThemeOverlay">
         <item name="singleLineTitle">false</item>
     </style>
-
     <style name="MyZeroSizeTextAppearance">
         <item name="android:textSize">0sp</item>
     </style>
-
-    <style name="Solid.Card" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardCornerRadius">12dp</item>
-        <item name="cardElevation">1dp</item>
-        <item name="cardBackgroundColor">?attr/colorSurface</item>
+    <style name="Solid.Card" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/solid_surface</item>
+        <item name="strokeColor">@color/solid_line</item>
+        <item name="strokeWidth">1dp</item>
     </style>
     <style name="Solid.Button" parent="Widget.Material3.Button">
-        <item name="cornerRadius">12dp</item>
-        <item name="android:minHeight">48dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:minHeight">52dp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="backgroundTint">@color/solid_primary</item>
+        <item name="android:textColor">@color/solid_on_primary</item>
+        <item name="iconTint">@color/solid_on_primary</item>
+        <item name="iconSize">20dp</item>
+    </style>
+    <style name="Solid.SecondaryButton" parent="Widget.Material3.Button.TonalButton">
+        <item name="cornerRadius">16dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="backgroundTint">@color/solid_panel</item>
+        <item name="android:textColor">@color/solid_ink</item>
+        <item name="iconTint">@color/solid_primary</item>
+    </style>
+    <style name="Solid.IconButton" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
+        <item name="cornerRadius">14dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="backgroundTint">@color/solid_panel</item>
+        <item name="iconTint">@color/solid_ink</item>
+    </style>
+    <style name="Solid.Title" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/solid_ink</item>
+    </style>
+    <style name="Solid.Section" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/solid_ink</item>
+    </style>
+    <style name="Solid.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:textColor">@color/solid_muted</item>
+    </style>
+    <style name="Solid.Caption" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/solid_muted</item>
+    </style>
+    <style name="Solid.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/Solid.Section</item>
+        <item name="android:background">@color/solid_canvas</item>
+        <item name="android:minHeight">64dp</item>
+        <item name="titleMarginStart">20dp</item>
     </style>
     <style name="Solid.BottomSheet" parent="Widget.Material3.BottomSheet.Modal">
         <item name="shapeAppearanceOverlay">@style/Solid.SheetShape</item>
-        <item name="backgroundTint">?attr/colorSurface</item>
+        <item name="backgroundTint">@color/solid_canvas</item>
     </style>
     <style name="Solid.SheetShape" parent="">
-        <item name="cornerSizeTopLeft">20dp</item>
-        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeTopLeft">28dp</item>
+        <item name="cornerSizeTopRight">28dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
     </style>
-    <style name="Solid.Toolbar" parent="Widget.Material3.Toolbar">
-        <item name="titleTextAppearance">@style/Solid.Title</item>
+    <style name="Solid.Input" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxBackgroundColor">@color/solid_surface</item>
     </style>
-    <style name="Solid.Title" parent="TextAppearance.Material3.TitleLarge">
-        <item name="android:textStyle">bold</item>
+    <style name="Solid.Tabs" parent="Widget.Material3.TabLayout">
+        <item name="android:background">@drawable/solid_soft_panel</item>
+        <item name="tabIndicatorColor">@color/solid_primary</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabSelectedTextColor">@color/solid_primary</item>
+        <item name="tabTextColor">@color/solid_muted</item>
+        <item name="tabTextAppearance">@style/Solid.Caption</item>
+        <item name="tabRippleColor">@color/solid_primary_soft</item>
+    </style>
+    <style name="Solid.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipCornerRadius">12dp</item>
+        <item name="chipMinHeight">36dp</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Solid.Preference" parent="Preference.Material">
+        <item name="android:layout">@layout/solid_preference</item>
+    </style>
+    <style name="Solid.NavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/solid_primary_soft</item>
+        <item name="android:width">56dp</item>
+        <item name="android:height">30dp</item>
     </style>
 </resources>

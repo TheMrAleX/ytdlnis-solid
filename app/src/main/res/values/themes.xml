@@ -1,5 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <style name="BaseTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
@@ -16,8 +16,12 @@
         <item name="snackbarStyle">@style/snackBarStyle</item>
         <item name="preferenceTheme">@style/PreferenceTheme</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+        <item name="textInputStyle">@style/Solid.Input</item>
+        <item name="tabStyle">@style/Solid.Tabs</item>
+        <item name="chipStyle">@style/Solid.Chip</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="preferenceStyle">@style/Solid.Preference</item>
     </style>
-
     <style name="Theme.Red" parent="BaseTheme">
         <item name="colorPrimary">@color/red_md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/red_md_theme_light_onPrimary</item>
@@ -45,11 +49,8 @@
         <item name="colorOnSurfaceInverse">@color/red_md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/red_md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/red_md_theme_light_inversePrimary</item>
-
     </style>
-
     <style name="Theme.Blue" parent="BaseTheme">
-
         <item name="colorPrimary">@color/blue_md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/blue_md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/blue_md_theme_light_primaryContainer</item>
@@ -77,13 +78,10 @@
         <item name="colorOnSurfaceInverse">@color/blue_md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/blue_md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/blue_md_theme_light_inversePrimary</item>
-
     </style>
-
     <style name="Theme.Yellow" parent="BaseTheme">
         <item name="colorSurfaceContainer">@color/yellow_md_theme_light_surface</item>
         <item name="colorSurfaceContainerHigh">@color/yellow_md_theme_light_surfaceVariant</item>
-
         <item name="colorPrimary">@color/yellow_md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/yellow_md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/yellow_md_theme_light_primaryContainer</item>
@@ -112,11 +110,8 @@
         <item name="colorOnSurfaceInverse">@color/yellow_md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/yellow_md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/yellow_md_theme_light_inversePrimary</item>
-
     </style>
-
     <style name="Theme.Green" parent="BaseTheme">
-
         <item name="colorPrimary">@color/green_md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/green_md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/green_md_theme_light_primaryContainer</item>
@@ -144,11 +139,8 @@
         <item name="colorOnSurfaceInverse">@color/green_md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/green_md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/green_md_theme_light_inversePrimary</item>
-
     </style>
-
     <style name="Theme.Purple" parent="BaseTheme">
-
         <item name="colorPrimary">@color/purple_md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/purple_md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/purple_md_theme_light_primaryContainer</item>
@@ -177,11 +169,8 @@
         <item name="colorOnSurfaceInverse">@color/purple_md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/purple_md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/purple_md_theme_light_inversePrimary</item>
-
     </style>
-
     <style name="Theme.Monochrome" parent="BaseTheme">
-
         <item name="colorPrimary">@color/monochrome_theme_light_primary</item>
         <item name="colorOnPrimary">@color/monochrome_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/monochrome_theme_light_primaryContainer</item>
@@ -210,9 +199,7 @@
         <item name="colorOnSurfaceInverse">@color/monochrome_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/monochrome_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/monochrome_theme_light_inversePrimary</item>
-
     </style>
-
     <style name="Theme.Orange" parent="BaseTheme">
         <item name="colorPrimary">@color/orange_md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/orange_md_theme_light_onPrimary</item>
@@ -241,12 +228,28 @@
         <item name="colorSurfaceInverse">@color/orange_md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/orange_md_theme_light_inversePrimary</item>
     </style>
-
     <style name="Pure">
-
         <item name="android:colorBackground">@android:color/white</item>
         <item name="colorSurface">@android:color/white</item>
-
     </style>
-
+    <style name="Theme.Solid" parent="BaseTheme">
+        <item name="colorPrimary">@color/solid_primary</item>
+        <item name="colorOnPrimary">@color/solid_on_primary</item>
+        <item name="colorPrimaryContainer">@color/solid_primary_soft</item>
+        <item name="colorOnPrimaryContainer">@color/solid_ink</item>
+        <item name="colorSecondary">@color/solid_muted</item>
+        <item name="colorSecondaryContainer">@color/solid_panel</item>
+        <item name="colorOnSecondaryContainer">@color/solid_ink</item>
+        <item name="colorTertiary">@color/solid_primary</item>
+        <item name="colorSurface">@color/solid_surface</item>
+        <item name="colorOnSurface">@color/solid_ink</item>
+        <item name="colorSurfaceVariant">@color/solid_panel</item>
+        <item name="colorOnSurfaceVariant">@color/solid_muted</item>
+        <item name="colorSurfaceContainer">@color/solid_surface</item>
+        <item name="colorSurfaceContainerHigh">@color/solid_panel</item>
+        <item name="colorOutline">@color/solid_line</item>
+        <item name="colorOutlineVariant">@color/solid_line</item>
+        <item name="android:colorBackground">@color/solid_canvas</item>
+        <item name="colorOnBackground">@color/solid_ink</item>
+    </style>
 </resources>

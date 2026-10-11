@@ -313,6 +313,7 @@
     </array>
 
     <array name="accents">
+        <item>@string/solid_theme</item>
         <item>@string/material_you</item>
         <item>@string/blue</item>
         <item>@string/red</item>
@@ -324,6 +325,7 @@
     </array>
 
     <array name="accents_values">
+        <item>solid</item>
         <item>Default</item>
         <item>blue</item>
         <item>red</item>

@@ -1,0 +1,4 @@
+<resources>
+<string name="solid_theme">Solid</string><string name="solid_headline">Tu contenido.
+A tu manera.</string><string name="solid_intro">Guarda un vídeo, conserva el audio y hazlo tuyo.</string><string name="solid_start">Añadir enlace</string><string name="solid_library">Biblioteca</string><string name="solid_tools">Tu espacio</string><string name="solid_tools_hint">Descargas, automatización y ajustes en un solo lugar.</string><string name="solid_quick">Accesos rápidos</string><string name="solid_manage">Organiza tu contenido</string><string name="solid_advanced">Herramientas avanzadas</string><string name="solid_quality">Elige la calidad</string><string name="solid_empty_hint">Tu contenido guardado aparecerá aquí.</string><string name="solid_widget">Solid · acceso rápido</string><string name="solid_widget_description">Abre Solid, tu biblioteca o la cola de descargas.</string>
+</resources>

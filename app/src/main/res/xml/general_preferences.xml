@@ -32,9 +32,9 @@
             android:entries="@array/accents"
             android:entryValues="@array/accents_values"
             android:icon="@drawable/baseline_color_lens_24"
-            app:defaultValue="yellow"
+            app:defaultValue="solid"
             app:key="theme_accent"
-            app:summary="@string/yellow"
+            app:summary="@string/solid_theme"
             app:title="@string/accents" />
 
         <SwitchPreferenceCompat
