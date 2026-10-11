@@ -558,7 +558,7 @@
     <string name="min_delay">Jeda minimum(detik)</string>
     <string name="max_delay">Jeda maksimum(detik)</string>
     <string name="no_delay">Tidak ada jeda yang di atur</string>
-    <string name="waiting_download_delay">Menunggu jeda unduhan(%d detik)…</string>
+    <string name="waiting_download_delay">Menunggu jeda unduhan(%s detik)…</string>
     <plurals name="every_minutes">
         <item quantity="other">Setiap menit\nSetiap%d menit</item>
     </plurals>

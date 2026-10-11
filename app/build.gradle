@@ -32,6 +32,10 @@ if (isBeta) {
 }
 
 android {
+    lint {
+        // Only existing upstream plural translations; all new errors remain blocking.
+        baseline = file("lint-baseline.xml")
+    }
     namespace 'com.deniscerri.ytdl'
     compileSdk = 36
 
