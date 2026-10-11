@@ -19,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.File
+import java.io.FileInputStream
 
 @RunWith(AndroidJUnit4::class)
 class SolidUiSmokeTest {
@@ -31,6 +32,10 @@ class SolidUiSmokeTest {
         directory.mkdirs()
         File(directory, "$name.png").outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         bitmap.recycle()
+        // AGP uninstalls the app after connected tests; retain previews in shell-owned storage.
+        instrumentation.uiAutomation.executeShellCommand(
+            "mkdir -p /sdcard/Download/solid-previews; cp ${File(directory, "$name.png").absolutePath} /sdcard/Download/solid-previews/$name.png"
+        ).use { descriptor -> FileInputStream(descriptor.fileDescriptor).use { it.readBytes() } }
     }
 
     @Test
@@ -55,7 +60,7 @@ class SolidUiSmokeTest {
             onView(withId(R.id.settings_toolbar)).check(matches(isDisplayed()))
             screenshot("05-settings")
             pressBack()
-            scenario.onActivity { it.findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.homeFragment }
+            onView(withId(R.id.homeFragment)).perform(click())
             onView(withId(R.id.solid_add_link)).check(matches(isDisplayed()))
 
             // Fixture text is confined to tests. These are the actual production XML components.

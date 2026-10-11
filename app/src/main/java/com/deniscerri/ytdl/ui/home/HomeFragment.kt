@@ -24,6 +24,8 @@ import android.view.View.OnClickListener
 import android.view.View.OnTouchListener
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import androidx.navigation.ui.NavigationUI
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import androidx.activity.addCallback
@@ -175,10 +177,10 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener, SearchSuggesti
             searchBar?.performClick()
         }
         view.findViewById<View>(R.id.solid_library_shortcut).setOnClickListener {
-            findNavController().navigate(R.id.historyFragment)
+            NavigationUI.onNavDestinationSelected(PopupMenu(requireContext(), null).apply { menuInflater.inflate(R.menu.bottom_nav_menu, menu) }.menu.findItem(R.id.historyFragment), findNavController())
         }
         view.findViewById<View>(R.id.solid_queue_shortcut).setOnClickListener {
-            findNavController().navigate(R.id.downloadQueueMainFragment)
+            NavigationUI.onNavDestinationSelected(PopupMenu(requireContext(), null).apply { menuInflater.inflate(R.menu.bottom_nav_menu, menu) }.menu.findItem(R.id.downloadQueueMainFragment), findNavController())
         }
         appBarLayout = view.findViewById(R.id.home_appbarlayout)
         materialToolbar = view.findViewById(R.id.home_toolbar)

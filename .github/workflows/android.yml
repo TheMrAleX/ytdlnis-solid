@@ -73,11 +73,7 @@ jobs:
           arch: x86_64
           profile: pixel_2
           disable-animations: true
-          script: |
-            status=0
-            bash gradlew connectedGithubDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.deniscerri.ytdl.SolidUiSmokeTest --stacktrace || status=$?
-            adb pull /sdcard/Android/data/com.themralex.ytdlnis.solid/files/solid-previews/ solid-previews/ || true
-            exit "$status"
+          script: bash scripts/run_solid_ui_checks.sh
       - uses: actions/upload-artifact@v4
         if: always()
         with:
