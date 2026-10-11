@@ -55,6 +55,8 @@ class SolidUiSmokeTest {
             onView(withId(R.id.settings_toolbar)).check(matches(isDisplayed()))
             screenshot("05-settings")
             pressBack()
+            scenario.onActivity { it.findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.homeFragment }
+            onView(withId(R.id.solid_add_link)).check(matches(isDisplayed()))
 
             // Fixture text is confined to tests. These are the actual production XML components.
             scenario.onActivity { activity ->
