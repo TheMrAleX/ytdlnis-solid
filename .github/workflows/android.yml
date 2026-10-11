@@ -8,9 +8,9 @@ on:
 permissions:
   contents: read
 
-# Preserve each run, and serialize publishing so older builds cannot replace Latest.
+# Different runs must never cancel each other's queued builds or releases.
 concurrency:
-  group: solid-releases
+  group: solid-release-${{ github.run_id }}
   cancel-in-progress: false
 
 env:
